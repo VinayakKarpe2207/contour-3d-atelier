@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CONTOUR — 3D Dimensional Graphite & Cross-Hatch Gallery</title>
-  <meta name="description" content="Explore 10 master studies in 3D graphite sketch, architectural cross-hatching, and kinetic volume.">
+  <title>CONTOUR — 3D Dimensional Graphite & Sumi-e Atelier</title>
+  <meta name="description" content="Explore 20 master studies in 3D: Vol. I Renaissance Graphite & Vol. II Japanese Sumi-e Calligraphy.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Noto+Serif+JP:wght@300;500;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css">
 </head>
@@ -18,7 +18,7 @@
   <div class="vignette-overlay" aria-hidden="true"></div>
 
   <!-- Main Application Container -->
-  <div class="atelier-app">
+  <div class="atelier-app" id="atelierApp">
     
     <!-- Top Gallery Header -->
     <header class="gallery-header">
@@ -28,7 +28,7 @@
         </a>
         <span class="brand-divider">/</span>
         <h1 class="gallery-title">CONTOUR</h1>
-        <span class="gallery-edition">DIMENSIONAL GRAPHITE &bull; 10 MASTER STUDIES</span>
+        <span class="gallery-edition" id="galleryEditionBadge">VOL. I &bull; RENAISSANCE GRAPHITE CODEX</span>
       </div>
 
       <div class="header-status">
@@ -55,6 +55,14 @@
     <main class="canvas-viewport" id="canvasViewport">
       <canvas id="webglCanvas"></canvas>
 
+      <!-- Authentic Red Cinnabar Artist Hanko Stamp (Visible in Vol. II) -->
+      <div class="hanko-seal hidden" id="hankoSeal" aria-hidden="true" title="Traditional Japanese Artist Seal">
+        <div class="hanko-box">
+          <span>水</span>
+          <span>墨</span>
+        </div>
+      </div>
+
       <!-- Alignment / 2D Perspective Reticle Overlay & Live Re-Sketch -->
       <div class="perspective-indicator" id="perspectiveIndicator">
         <div class="reticle-box">
@@ -80,7 +88,7 @@
       <!-- Freehand 3D Draw Instructions (Visible during Sketch Mode) -->
       <div class="drawing-hint hidden" id="drawingHint">
         <span class="pencil-icon">&#x270E;</span>
-        <span class="hint-text">Click & drag on the canvas to draw freehand 3D pencil strokes in space</span>
+        <span class="hint-text">Click & drag on the canvas to draw freehand 3D strokes in space</span>
       </div>
 
       <!-- Spatial Coordinates Overlay -->
@@ -91,16 +99,33 @@
       </div>
     </main>
 
-    <!-- Left Gallery Index (Sculpture Switcher - 10 Studies) -->
+    <!-- Left Gallery Index (Sculpture Switcher - 20 Studies across 2 Volumes) -->
     <aside class="curator-sidebar">
+      <!-- Volume Switcher Tabs -->
+      <div class="volume-selector-bar">
+        <button class="vol-tab-btn active" data-volume="1" id="volBtn1">
+          <span class="vol-tag">VOL. I</span>
+          <span class="vol-title">Graphite Codex</span>
+        </button>
+        <button class="vol-tab-btn" data-volume="2" id="volBtn2">
+          <span class="vol-tag">VOL. II</span>
+          <span class="vol-title">Sumi-e Zen Ink</span>
+        </button>
+        <button class="vol-tab-btn" data-volume="3" id="volBtn3">
+          <span class="vol-tag">VOL. III</span>
+          <span class="vol-title">Sacred Temples</span>
+        </button>
+      </div>
+
       <div class="sidebar-header">
-        <span class="section-label">GRAPHITE CODEX</span>
+        <span class="section-label" id="sidebarSectionLabel">GRAPHITE CODEX</span>
         <span class="plate-counter" id="plateCounter">01 / 10</span>
       </div>
 
       <nav class="plates-list" role="tablist">
+        <!-- ==================== VOLUME I: RENAISSANCE GRAPHITE ==================== -->
         <!-- 01: Blooming Lily -->
-        <button class="plate-card active" data-plate="0" role="tab" aria-selected="true" id="plateBtn0">
+        <button class="plate-card vol-item vol-1 active" data-plate="0" role="tab" aria-selected="true" id="plateBtn0">
           <div class="plate-meta">
             <span class="plate-roman">STUDY 01</span>
             <span class="plate-year">FLORA</span>
@@ -110,7 +135,7 @@
         </button>
 
         <!-- 02: Classic GT Coupe -->
-        <button class="plate-card" data-plate="1" role="tab" aria-selected="false" id="plateBtn1">
+        <button class="plate-card vol-item vol-1" data-plate="1" role="tab" aria-selected="false" id="plateBtn1">
           <div class="plate-meta">
             <span class="plate-roman">STUDY 02</span>
             <span class="plate-year">AUTOMOTIVE</span>
@@ -120,7 +145,7 @@
         </button>
 
         <!-- 03: Earth & Astrolabe -->
-        <button class="plate-card" data-plate="2" role="tab" aria-selected="false" id="plateBtn2">
+        <button class="plate-card vol-item vol-1" data-plate="2" role="tab" aria-selected="false" id="plateBtn2">
           <div class="plate-meta">
             <span class="plate-roman">STUDY 03</span>
             <span class="plate-year">COSMOLOGY</span>
@@ -130,7 +155,7 @@
         </button>
 
         <!-- 04: Da Vinci Flying Machine -->
-        <button class="plate-card" data-plate="3" role="tab" aria-selected="false" id="plateBtn3">
+        <button class="plate-card vol-item vol-1" data-plate="3" role="tab" aria-selected="false" id="plateBtn3">
           <div class="plate-meta">
             <span class="plate-roman">STUDY 04</span>
             <span class="plate-year">RENAISSANCE</span>
@@ -139,8 +164,8 @@
           <p class="plate-desc">Leonardo's famous human-powered flying wing with ribbed batten ribs, fuselage cockpit armature, and flight cables.</p>
         </button>
 
-        <!-- 05: Mechanical Tourbillon -->
-        <button class="plate-card" data-plate="4" role="tab" aria-selected="false" id="plateBtn4">
+        <!-- 05: Tourbillon Horology -->
+        <button class="plate-card vol-item vol-1" data-plate="4" role="tab" aria-selected="false" id="plateBtn4">
           <div class="plate-meta">
             <span class="plate-roman">STUDY 05</span>
             <span class="plate-year">HOROLOGY</span>
@@ -150,7 +175,7 @@
         </button>
 
         <!-- 06: Logarithmic Nautilus -->
-        <button class="plate-card" data-plate="5" role="tab" aria-selected="false" id="plateBtn5">
+        <button class="plate-card vol-item vol-1" data-plate="5" role="tab" aria-selected="false" id="plateBtn5">
           <div class="plate-meta">
             <span class="plate-roman">STUDY 06</span>
             <span class="plate-year">SACRED GEOMETRY</span>
@@ -160,7 +185,7 @@
         </button>
 
         <!-- 07: Classical Roman Temple -->
-        <button class="plate-card" data-plate="6" role="tab" aria-selected="false" id="plateBtn6">
+        <button class="plate-card vol-item vol-1" data-plate="6" role="tab" aria-selected="false" id="plateBtn6">
           <div class="plate-meta">
             <span class="plate-roman">STUDY 07</span>
             <span class="plate-year">ARCHITECTURE</span>
@@ -170,7 +195,7 @@
         </button>
 
         <!-- 08: Galloping Stallion -->
-        <button class="plate-card" data-plate="7" role="tab" aria-selected="false" id="plateBtn7">
+        <button class="plate-card vol-item vol-1" data-plate="7" role="tab" aria-selected="false" id="plateBtn7">
           <div class="plate-meta">
             <span class="plate-roman">STUDY 08</span>
             <span class="plate-year">ANATOMY</span>
@@ -180,7 +205,7 @@
         </button>
 
         <!-- 09: Vintage Biplane -->
-        <button class="plate-card" data-plate="8" role="tab" aria-selected="false" id="plateBtn8">
+        <button class="plate-card vol-item vol-1" data-plate="8" role="tab" aria-selected="false" id="plateBtn8">
           <div class="plate-meta">
             <span class="plate-roman">STUDY 09</span>
             <span class="plate-year">AVIATION</span>
@@ -190,13 +215,215 @@
         </button>
 
         <!-- 10: Mythical Phoenix -->
-        <button class="plate-card" data-plate="9" role="tab" aria-selected="false" id="plateBtn9">
+        <button class="plate-card vol-item vol-1" data-plate="9" role="tab" aria-selected="false" id="plateBtn9">
           <div class="plate-meta">
             <span class="plate-roman">STUDY 10</span>
             <span class="plate-year">MYTHOLOGY</span>
           </div>
           <h2 class="plate-name">Mythical Phoenix</h2>
           <p class="plate-desc">Ascending mythical firebird with crested crown, grand arched wings with feathered contours, tail plumes, and flame ribbons.</p>
+        </button>
+
+        <!-- ==================== VOLUME II: SUMI-E ZEN INK ==================== -->
+        <!-- 11: Ancient Bonsai Pine -->
+        <button class="plate-card vol-item vol-2 hidden" data-plate="10" role="tab" aria-selected="false" id="plateBtn10">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 11</span>
+            <span class="plate-year">松 &bull; MATSU</span>
+          </div>
+          <h2 class="plate-name">Ancient Bonsai Pine</h2>
+          <p class="plate-desc">Weathered, twisting pine trunk rendered in bold calligraphic strokes, crowned with tiered clouds of needle tufts and mountain mist.</p>
+        </button>
+
+        <!-- 12: Swimming Nishikigoi -->
+        <button class="plate-card vol-item vol-2 hidden" data-plate="11" role="tab" aria-selected="false" id="plateBtn11">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 12</span>
+            <span class="plate-year">鯉 &bull; KOI</span>
+          </div>
+          <h2 class="plate-name">Swimming Nishikigoi</h2>
+          <p class="plate-desc">Fluid koi fish gliding through 3D space with sweeping calligraphic dorsal and tail fins and concentric ink water ripples.</p>
+        </button>
+
+        <!-- 13: Red-Crowned Crane -->
+        <button class="plate-card vol-item vol-2 hidden" data-plate="12" role="tab" aria-selected="false" id="plateBtn12">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 13</span>
+            <span class="plate-year">鶴 &bull; TSURU</span>
+          </div>
+          <h2 class="plate-name">Red-Crowned Crane</h2>
+          <p class="plate-desc">Sacred crane in flight, capturing its slender arched neck, expansive primary feather brush strokes, and trailing legs.</p>
+        </button>
+
+        <!-- 14: Wind-Blown Bamboo -->
+        <button class="plate-card vol-item vol-2 hidden" data-plate="13" role="tab" aria-selected="false" id="plateBtn13">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 14</span>
+            <span class="plate-year">竹 &bull; TAKE</span>
+          </div>
+          <h2 class="plate-name">Wind-Blown Bamboo</h2>
+          <p class="plate-desc">Jointed vertical bamboo culms with distinct ring nodes and razor-sharp tapered leaves swaying in an angled gust.</p>
+        </button>
+
+        <!-- 15: Cherry Blossom Branch -->
+        <button class="plate-card vol-item vol-2 hidden" data-plate="14" role="tab" aria-selected="false" id="plateBtn14">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 15</span>
+            <span class="plate-year">桜 &bull; SAKURA</span>
+          </div>
+          <h2 class="plate-name">Cherry Blossom Branch</h2>
+          <p class="plate-desc">Angular, weathered bark stroke bearing five-petaled blossoming florets, central stamen dots, and drifting petal silhouettes.</p>
+        </button>
+
+        <!-- 16: Five-Tiered Zen Pagoda -->
+        <button class="plate-card vol-item vol-2 hidden" data-plate="15" role="tab" aria-selected="false" id="plateBtn15">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 16</span>
+            <span class="plate-year">塔 &bull; PAGODA</span>
+          </div>
+          <h2 class="plate-name">Five-Tiered Pagoda</h2>
+          <p class="plate-desc">Architectural temple tower with five sweeping curved eave roofs, central axis pillar, and a sacred ringed spire (*sorin*).</p>
+        </button>
+
+        <!-- 17: The Great Wave -->
+        <button class="plate-card vol-item vol-2 hidden" data-plate="16" role="tab" aria-selected="false" id="plateBtn16">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 17</span>
+            <span class="plate-year">波 &bull; OKI-NAMI</span>
+          </div>
+          <h2 class="plate-name">The Great Wave</h2>
+          <p class="plate-desc">Inspired by Hokusai: soaring crested ocean wave clawing forward with dynamic foam spray droplets and sweeping water ribbons.</p>
+        </button>
+
+        <!-- 18: Zen Ensō Circle & Moon -->
+        <button class="plate-card vol-item vol-2 hidden" data-plate="17" role="tab" aria-selected="false" id="plateBtn17">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 18</span>
+            <span class="plate-year">円 &bull; ENSŌ</span>
+          </div>
+          <h2 class="plate-name">Ensō Circle & Moon</h2>
+          <p class="plate-desc">The sacred Zen circle drawn in one continuous, mindful brush stroke with organic pooling and dry-brush bristles, framing a crescent moon.</p>
+        </button>
+
+        <!-- 19: Cloud Dragon -->
+        <button class="plate-card vol-item vol-2 hidden" data-plate="18" role="tab" aria-selected="false" id="plateBtn18">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 19</span>
+            <span class="plate-year">龍 &bull; RYŪ</span>
+          </div>
+          <h2 class="plate-name">Cloud Dragon</h2>
+          <p class="plate-desc">Legendary serpentine Eastern dragon coiling through misty clouds with antlered horns, flaming whiskers, and grasping talons.</p>
+        </button>
+
+        <!-- 20: Mount Fuji & Mist -->
+        <button class="plate-card vol-item vol-2 hidden" data-plate="19" role="tab" aria-selected="false" id="plateBtn19">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 20</span>
+            <span class="plate-year">富士 &bull; FUJI</span>
+          </div>
+          <h2 class="plate-name">Mount Fuji & Mist</h2>
+          <p class="plate-desc">Symmetrical volcanic peak with snowy snowcap contour brush, encircling ribbon cirrus clouds, and misty foothills.</p>
+        </button>
+
+        <!-- ==================== VOLUME III: SACRED ARCHITECTURE ==================== -->
+        <!-- 21: Three-Tiered Mountain Pagoda -->
+        <button class="plate-card vol-item vol-3 hidden" data-plate="20" role="tab" aria-selected="false" id="plateBtn20">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 21</span>
+            <span class="plate-year">三重塔 &bull; PAGODA</span>
+          </div>
+          <h2 class="plate-name">Three-Tiered Pagoda</h2>
+          <p class="plate-desc">Classical Sanju-no-To: three ascending hip-and-gable roofs with sweeping sori eaves, vermilion post-and-beam joinery, tokyo brackets, and 9-ring bronze spire.</p>
+        </button>
+
+        <!-- 22: The Golden Water Pavilion -->
+        <button class="plate-card vol-item vol-3 hidden" data-plate="21" role="tab" aria-selected="false" id="plateBtn21">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 22</span>
+            <span class="plate-year">金閣寺 &bull; KINKAKU-JI</span>
+          </div>
+          <h2 class="plate-name">The Golden Pavilion</h2>
+          <p class="plate-desc">Iconic three-story pavilion combining Shinden palace, Buke samurai, and Zen hall styles with lakeside veranda deck and a soaring golden Phoenix finial.</p>
+        </button>
+
+        <!-- 23: Floating Grand Torii & Water Shrine -->
+        <button class="plate-card vol-item vol-3 hidden" data-plate="22" role="tab" aria-selected="false" id="plateBtn22">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 23</span>
+            <span class="plate-year">大鳥居 &bull; TORII GATE</span>
+          </div>
+          <h2 class="plate-name">Floating Grand Torii</h2>
+          <p class="plate-desc">Monumental vermilion Ryōbu-torii water gate rising from the sea: six colossal pillar trunks, swept dual lintel beams, and tidal water ripples.</p>
+        </button>
+
+        <!-- 24: Tahōtō Multi-Treasure Pagoda -->
+        <button class="plate-card vol-item vol-3 hidden" data-plate="23" role="tab" aria-selected="false" id="plateBtn23">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 24</span>
+            <span class="plate-year">多宝塔 &bull; TAHŌTŌ</span>
+          </div>
+          <h2 class="plate-name">Multi-Treasure Pagoda</h2>
+          <p class="plate-desc">Esoteric Buddhist geometry: square base chamber transitioning into an ethereal cylindrical dome (kamebara), crowned by an upper square roof and bronze spire.</p>
+        </button>
+
+        <!-- 25: Cantilevered Mountain Stage Hall -->
+        <button class="plate-card vol-item vol-3 hidden" data-plate="24" role="tab" aria-selected="false" id="plateBtn24">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 25</span>
+            <span class="plate-year">懸造り &bull; STAGE HALL</span>
+          </div>
+          <h2 class="plate-name">Cliffside Stage Hall</h2>
+          <p class="plate-desc">Inspired by Kiyomizu-dera: massive nail-less timber scaffold (kake-zukuri) jutting over mountain cliffs with sprawling cypress bark roof and misty clouds.</p>
+        </button>
+
+        <!-- 26: Zen Mountain Grand Gate -->
+        <button class="plate-card vol-item vol-3 hidden" data-plate="25" role="tab" aria-selected="false" id="plateBtn25">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 26</span>
+            <span class="plate-year">山門 &bull; SANMON GATE</span>
+          </div>
+          <h2 class="plate-name">Zen Grand Gate</h2>
+          <p class="plate-desc">Monumental two-story gatehouse symbolizing the three gates of liberation: dual-bay entrance colonnade, upper balcony gallery, and interlocking bracket sets.</p>
+        </button>
+
+        <!-- 27: Octagonal Hall of Dreams -->
+        <button class="plate-card vol-item vol-3 hidden" data-plate="26" role="tab" aria-selected="false" id="plateBtn26">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 27</span>
+            <span class="plate-year">八角堂 &bull; HAKKAKU-DŌ</span>
+          </div>
+          <h2 class="plate-name">Octagonal Dream Hall</h2>
+          <p class="plate-desc">Sacred 8-sided pavilion inspired by Hōryū-ji’s Yumedono: 8 swept eaves radiating from a central lotus flame jewel, with octagonal stone terrace and washi screens.</p>
+        </button>
+
+        <!-- 28: Sacred Belfry & Great Bronze Bell -->
+        <button class="plate-card vol-item vol-3 hidden" data-plate="27" role="tab" aria-selected="false" id="plateBtn27">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 28</span>
+            <span class="plate-year">鐘楼 &bull; BELFRY &amp; BELL</span>
+          </div>
+          <h2 class="plate-name">Temple Bell Tower</h2>
+          <p class="plate-desc">Flared timber belfry pavilion sheltering a massive suspended bronze temple bell (bonshō) with dragon-head crown and horizontal swinging wooden striker log.</p>
+        </button>
+
+        <!-- 29: Silver Zen Pavilion & Moon Terrace -->
+        <button class="plate-card vol-item vol-3 hidden" data-plate="28" role="tab" aria-selected="false" id="plateBtn28">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 29</span>
+            <span class="plate-year">銀閣寺 &bull; GINKAKU-JI</span>
+          </div>
+          <h2 class="plate-name">Silver Zen Pavilion</h2>
+          <p class="plate-desc">Wabi-sabi cedar pavilion featuring arched flower-bell windows (katōmado), moon-viewing veranda, dry gravel sea ripples, and conical sand mound (Kogetsudai).</p>
+        </button>
+
+        <!-- 30: The Grand Buddha Palace Hall -->
+        <button class="plate-card vol-item vol-3 hidden" data-plate="29" role="tab" aria-selected="false" id="plateBtn29">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 30</span>
+            <span class="plate-year">大仏殿 &bull; DAIBUTSUDEN</span>
+          </div>
+          <h2 class="plate-name">The Grand Buddha Hall</h2>
+          <p class="plate-desc">Colossal dual-eaved wooden palace hall inspired by Tōdai-ji: soaring bracket capitals, gilded curved cusped gable (karahafu), and twin golden roof horns (shibi).</p>
         </button>
       </nav>
 
@@ -214,19 +441,19 @@
     <footer class="atelier-footer">
       <!-- Media / Ink Palette -->
       <div class="control-group">
-        <span class="ctrl-label">GRAPHITE MEDIUM</span>
+        <span class="ctrl-label" id="paletteLabel">MEDIUM PIGMENT</span>
         <div class="palette-swatches">
-          <button class="swatch-btn active" data-color="#181716" data-name="Carbon Graphite" title="Carbon Graphite" style="--swatch-c: #181716;"></button>
+          <button class="swatch-btn active" data-color="#141312" data-name="Sumi Carbon Ink" title="Sumi Carbon Ink" style="--swatch-c: #141312;"></button>
           <button class="swatch-btn" data-color="#6F3B26" data-name="Burnt Sepia" title="Burnt Sepia" style="--swatch-c: #6F3B26;"></button>
-          <button class="swatch-btn" data-color="#243447" data-name="Prussian Ink" title="Prussian Ink" style="--swatch-c: #243447;"></button>
-          <button class="swatch-btn" data-color="#3D4A3E" data-name="Verdigris Pencil" title="Verdigris Pencil" style="--swatch-c: #3D4A3E;"></button>
-          <button class="swatch-btn" data-color="#B8860B" data-name="Gilded Metalpoint" title="Gilded Metalpoint" style="--swatch-c: #B8860B;"></button>
+          <button class="swatch-btn" data-color="#1B2E4B" data-name="Indigo Wash" title="Indigo Wash" style="--swatch-c: #1B2E4B;"></button>
+          <button class="swatch-btn" data-color="#3D4A3E" data-name="Moss Pine" title="Moss Pine" style="--swatch-c: #3D4A3E;"></button>
+          <button class="swatch-btn" data-color="#B8860B" data-name="Gilded Mica" title="Gilded Mica" style="--swatch-c: #B8860B;"></button>
         </div>
       </div>
 
-      <!-- Shading Hatching Toggle -->
+      <!-- Shading / Ink Bleed Toggle -->
       <div class="control-group">
-        <span class="ctrl-label">CROSS-HATCH SHADING</span>
+        <span class="ctrl-label" id="shadingToggleLabel">CROSS-HATCH SHADING</span>
         <button id="hatchToggle" class="pill-toggle active" aria-pressed="true">
           <span class="toggle-track"><span class="toggle-thumb"></span></span>
           <span class="toggle-label" id="hatchLabel">Volume On</span>
@@ -235,16 +462,16 @@
 
       <!-- Drafting Guide Marks Toggle -->
       <div class="control-group">
-        <span class="ctrl-label">DRAFTING GUIDES</span>
+        <span class="ctrl-label" id="guidesToggleLabel">DRAFTING GUIDES</span>
         <button id="guidesToggle" class="pill-toggle active" aria-pressed="true">
           <span class="toggle-track"><span class="toggle-thumb"></span></span>
           <span class="toggle-label" id="guidesLabel">Visible</span>
         </button>
       </div>
 
-      <!-- Hand-Drawn Jitter -->
+      <!-- Texture Jitter -->
       <div class="control-group">
-        <span class="ctrl-label">GRAPHITE GRAIN</span>
+        <span class="ctrl-label">PAPER GRAIN</span>
         <button id="jitterToggle" class="pill-toggle active" aria-pressed="true">
           <span class="toggle-track"><span class="toggle-thumb"></span></span>
           <span class="toggle-label" id="jitterLabel">Organic Grain</span>
@@ -274,28 +501,32 @@
         <button class="modal-close-btn" id="closeModalBtn" aria-label="Close Curator Notes">&times;</button>
         <div class="modal-content">
           <span class="modal-tag">CURATORIAL ESSAY &bull; ATELIER CONTOUR</span>
-          <h2 id="modalTitle" class="modal-title">The Master Graphite Codex</h2>
+          <h2 id="modalTitle" class="modal-title">Three Codices: Graphite, Sumi-e &amp; Sacred Architecture</h2>
           <div class="modal-body">
             <p>
-              In classical Renaissance draughtsmanship—from Leonardo da Vinci’s anatomical studies to Albrecht Dürer’s geometric engravings—a drawing is not simply a flat silhouette. It is an exploration of volume, mass, and tension realized through rhythmic cross-hatching and architectural guide axes.
+              <strong>CONTOUR</strong> unites three transcendent spatial traditions across <strong>30 Master Studies</strong>:
             </p>
             <p>
-              <strong>CONTOUR</strong> transforms this tradition into an interactive spatial studio across <strong>10 Master Studies</strong>. 
-              Viewed directly along the orthogonal axis (click <em>"Align 2D Perspective"</em>), the strokes collapse into a graphic draughtsman's sketch. 
-              Upon orbit, the layered graphite curves expand into third-dimensional space, revealing internal mechanisms, organic venation, and structural anatomy.
+              <strong>Volume I &bull; The Renaissance Graphite Codex:</strong> Studies in linear perspective, architectural cross-hatching, and kinetic mechanical anatomy inspired by Leonardo da Vinci and Albrecht Dürer.
+            </p>
+            <p>
+              <strong>Volume II &bull; The Sumi-e &amp; Zen Ink Codex:</strong> Ancient Japanese ink wash (*Suibokuga*) where a single mindful brush stroke captures the vital essence (*Ki / Qi*) of nature through calligraphic pressure, flying-white texture (*Hihaku*), and negative space (*Ma*).
+            </p>
+            <p>
+              <strong>Volume III &bull; Sacred Temple &amp; Pagoda Architecture:</strong> Classical timber joinery (*kigumi*), multi-tiered sweeping eaves (*sori*), sacred 9-ring spires (*sorin*), and sacred pavilions spanning Kiyomizu-dera, Kinkaku-ji, Itsukushima, and Tōdai-ji.
             </p>
             <div class="modal-quote">
-              &ldquo;Simplicity is the ultimate sophistication, and the line is its purest vehicle.&rdquo;
-              <span class="quote-author">— Leonardo da Vinci</span>
+              &ldquo;The wooden joint that holds without a single nail yields to the earthquake and stands for a thousand years.&rdquo;
+              <span class="quote-author">— Japanese Master Temple Carpenter Tradition</span>
             </div>
             <div class="modal-guide">
               <h3>Interaction Guide:</h3>
               <ul>
-                <li><strong>Drag / Swipe:</strong> Orbit the 3D graphite sketch freely in space.</li>
-                <li><strong>Align 2D Perspective:</strong> Snaps the camera into the exact angle where 3D depth collapses into a 2D drawing.</li>
-                <li><strong>Live Re-Sketch:</strong> Watch the piece materialize live stroke-by-stroke with authentic tactile graphite audio.</li>
-                <li><strong>Cross-Hatch Shading:</strong> Toggle volumetric shadow hatching on/off to analyze the underlying structural contours.</li>
-                <li><strong>Freehand Sketch Studio:</strong> Draw your own 3D pencil strokes freely in spatial coordinates.</li>
+                <li><strong>Volume Switcher:</strong> Toggle between Vol. I (Renaissance), Vol. II (Sumi-e), and Vol. III (Sacred Architecture) at the top of the catalogue.</li>
+                <li><strong>Drag / Swipe:</strong> Orbit the 3D drawings freely in space.</li>
+                <li><strong>Align 2D Perspective:</strong> Snaps the camera into the exact angle where 3D depth flattens into a 2D painting.</li>
+                <li><strong>Live Re-Sketch:</strong> Watch the piece draw itself live stroke-by-stroke with authentic tactile audio.</li>
+                <li><strong>Freehand 3D Sketch Studio:</strong> Draw your own 3D strokes freely in spatial coordinates.</li>
               </ul>
             </div>
           </div>

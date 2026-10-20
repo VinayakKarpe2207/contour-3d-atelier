@@ -42,20 +42,20 @@
 
     <div class="hero-content">
       <div class="hero-badge-wrap">
-        <span class="hero-kicker">EXHIBITION NO. 04 &bull; MASTER GRAPHITE CODEX</span>
+        <span class="hero-kicker">EXHIBITION NO. 04 &bull; RENAISSANCE GRAPHITE & SUMI-E CODICES</span>
       </div>
       <h1 class="hero-heading">
         Where Classical Draughtsmanship<br>
         <span class="hero-italic">Meets Third-Dimensional Space.</span>
       </h1>
       <p class="hero-lead">
-        Step beyond the flat sheet of vellum. Explore <strong>10 master studies</strong> sculpted purely from multi-stroke graphite contours, architectural cross-hatching, and spatial perspective.
+        Step beyond the flat sheet of vellum. Explore <strong>30 master studies across three curated volumes</strong>: Renaissance Graphite drafting, Japanese Sumi-e Zen Ink calligraphy, and Sacred Japanese Temple &amp; Pagoda Architecture.
       </p>
 
       <div class="hero-actions">
         <a href="gallery.html" class="btn-primary-explore" id="exploreBtn">
           <span class="btn-icon">&#x270D;</span>
-          <span class="btn-text">Explore 3D Atelier (10 Studies)</span>
+          <span class="btn-text">Explore 3D Atelier (30 Studies)</span>
           <span class="btn-arrow">&rarr;</span>
         </a>
         <a href="#exhibits" class="btn-secondary-catalogue">
@@ -65,8 +65,13 @@
 
       <div class="hero-stats">
         <div class="stat-item">
-          <span class="stat-number">10</span>
+          <span class="stat-number">30</span>
           <span class="stat-label">Master Studies</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">3</span>
+          <span class="stat-label">Curated Volumes</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
@@ -87,19 +92,36 @@
     </div>
   </header>
 
-  <!-- Section: The 10 Master Studies Catalogue -->
+  <!-- Section: The 30 Master Studies Catalogue -->
   <section class="section-catalogue" id="exhibits">
     <div class="section-header">
       <span class="section-tag">CATALOGUE DES ŒUVRES</span>
-      <h2 class="section-title">The Ten Master Studies</h2>
+      <h2 class="section-title">The Thirty Master Studies</h2>
       <p class="section-subtitle">
-        Each study balances classical Renaissance drafting rigor with kinetic volume. Click any plate to inspect in 3D.
+        Three distinct codices celebrating dimensional graphite rigor, the flowing spirit of Japanese ink wash calligraphy, and sacred classical timber temple architecture. Select a volume and click any study to inspect in 3D.
       </p>
+
+      <!-- Volume Switcher Tabs on Landing Page -->
+      <div class="landing-vol-selector">
+        <button class="landing-vol-btn active" data-vol="1" id="landingVol1">
+          <span class="vol-num">VOLUME I</span>
+          <span class="vol-name">Renaissance Graphite (01–10)</span>
+        </button>
+        <button class="landing-vol-btn" data-vol="2" id="landingVol2">
+          <span class="vol-num">VOLUME II</span>
+          <span class="vol-name">Sumi-e Zen Ink (11–20)</span>
+        </button>
+        <button class="landing-vol-btn" data-vol="3" id="landingVol3">
+          <span class="vol-num">VOLUME III</span>
+          <span class="vol-name">Sacred Architecture (21–30)</span>
+        </button>
+      </div>
     </div>
 
     <div class="catalogue-grid">
+      <!-- ==================== VOLUME I: RENAISSANCE GRAPHITE CODEX ==================== -->
       <!-- Card 01: Blooming Lily -->
-      <a href="gallery.html?plate=0" class="catalogue-card" data-plate="0">
+      <a href="gallery.html?vol=1&plate=0" class="catalogue-card vol-1-card" data-plate="0">
         <div class="card-meta">
           <span class="card-roman">STUDY 01</span>
           <span class="card-category">FLORA</span>
@@ -112,7 +134,7 @@
       </a>
 
       <!-- Card 02: Classic GT Coupe -->
-      <a href="gallery.html?plate=1" class="catalogue-card" data-plate="1">
+      <a href="gallery.html?vol=1&plate=1" class="catalogue-card vol-1-card" data-plate="1">
         <div class="card-meta">
           <span class="card-roman">STUDY 02</span>
           <span class="card-category">AUTOMOTIVE</span>
@@ -125,7 +147,7 @@
       </a>
 
       <!-- Card 03: Earth & Astrolabe -->
-      <a href="gallery.html?plate=2" class="catalogue-card" data-plate="2">
+      <a href="gallery.html?vol=1&plate=2" class="catalogue-card vol-1-card" data-plate="2">
         <div class="card-meta">
           <span class="card-roman">STUDY 03</span>
           <span class="card-category">COSMOLOGY</span>
@@ -138,7 +160,7 @@
       </a>
 
       <!-- Card 04: Da Vinci Ornithopter -->
-      <a href="gallery.html?plate=3" class="catalogue-card" data-plate="3">
+      <a href="gallery.html?vol=1&plate=3" class="catalogue-card vol-1-card" data-plate="3">
         <div class="card-meta">
           <span class="card-roman">STUDY 04</span>
           <span class="card-category">RENAISSANCE</span>
@@ -151,7 +173,7 @@
       </a>
 
       <!-- Card 05: Tourbillon Horology -->
-      <a href="gallery.html?plate=4" class="catalogue-card" data-plate="4">
+      <a href="gallery.html?vol=1&plate=4" class="catalogue-card vol-1-card" data-plate="4">
         <div class="card-meta">
           <span class="card-roman">STUDY 05</span>
           <span class="card-category">HOROLOGY</span>
@@ -164,7 +186,7 @@
       </a>
 
       <!-- Card 06: Logarithmic Nautilus Shell -->
-      <a href="gallery.html?plate=5" class="catalogue-card" data-plate="5">
+      <a href="gallery.html?vol=1&plate=5" class="catalogue-card vol-1-card" data-plate="5">
         <div class="card-meta">
           <span class="card-roman">STUDY 06</span>
           <span class="card-category">SACRED GEOMETRY</span>
@@ -177,7 +199,7 @@
       </a>
 
       <!-- Card 07: Classical Roman Temple -->
-      <a href="gallery.html?plate=6" class="catalogue-card" data-plate="6">
+      <a href="gallery.html?vol=1&plate=6" class="catalogue-card vol-1-card" data-plate="6">
         <div class="card-meta">
           <span class="card-roman">STUDY 07</span>
           <span class="card-category">ARCHITECTURE</span>
@@ -190,7 +212,7 @@
       </a>
 
       <!-- Card 08: Galloping Stallion -->
-      <a href="gallery.html?plate=7" class="catalogue-card" data-plate="7">
+      <a href="gallery.html?vol=1&plate=7" class="catalogue-card vol-1-card" data-plate="7">
         <div class="card-meta">
           <span class="card-roman">STUDY 08</span>
           <span class="card-category">ANATOMY</span>
@@ -203,7 +225,7 @@
       </a>
 
       <!-- Card 09: Vintage Biplane -->
-      <a href="gallery.html?plate=8" class="catalogue-card" data-plate="8">
+      <a href="gallery.html?vol=1&plate=8" class="catalogue-card vol-1-card" data-plate="8">
         <div class="card-meta">
           <span class="card-roman">STUDY 09</span>
           <span class="card-category">AVIATION</span>
@@ -216,13 +238,275 @@
       </a>
 
       <!-- Card 10: Mythical Phoenix -->
-      <a href="gallery.html?plate=9" class="catalogue-card" data-plate="9">
+      <a href="gallery.html?vol=1&plate=9" class="catalogue-card vol-1-card" data-plate="9">
         <div class="card-meta">
           <span class="card-roman">STUDY 10</span>
           <span class="card-category">MYTHOLOGY</span>
         </div>
         <h3 class="card-title">Mythical Phoenix</h3>
         <p class="card-desc">Ascending mythical firebird with crested crown, grand arched wings with feathered contours, tail plumes, and flame ribbons.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- ==================== VOLUME II: SUMI-E ZEN INK CODEX ==================== -->
+      <!-- Card 11: Ancient Bonsai Pine -->
+      <a href="gallery.html?vol=2&plate=10" class="catalogue-card vol-2-card hidden" data-plate="10">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 11</span>
+          <span class="card-category">松 &bull; MATSU</span>
+        </div>
+        <h3 class="card-title">Ancient Bonsai Pine</h3>
+        <p class="card-desc">Weathered, twisting pine trunk rendered in bold calligraphic strokes, crowned with tiered clouds of needle tufts and mountain mist.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 12: Swimming Nishikigoi -->
+      <a href="gallery.html?vol=2&plate=11" class="catalogue-card vol-2-card hidden" data-plate="11">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 12</span>
+          <span class="card-category">鯉 &bull; KOI</span>
+        </div>
+        <h3 class="card-title">Swimming Nishikigoi</h3>
+        <p class="card-desc">Fluid koi fish gliding through 3D space with sweeping calligraphic dorsal and tail fins and concentric ink water ripples.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 13: Red-Crowned Crane -->
+      <a href="gallery.html?vol=2&plate=12" class="catalogue-card vol-2-card hidden" data-plate="12">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 13</span>
+          <span class="card-category">鶴 &bull; TSURU</span>
+        </div>
+        <h3 class="card-title">Red-Crowned Crane</h3>
+        <p class="card-desc">Sacred crane in flight, capturing its slender arched neck, expansive primary feather brush strokes, and trailing legs.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 14: Wind-Blown Bamboo -->
+      <a href="gallery.html?vol=2&plate=13" class="catalogue-card vol-2-card hidden" data-plate="13">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 14</span>
+          <span class="card-category">竹 &bull; TAKE</span>
+        </div>
+        <h3 class="card-title">Wind-Blown Bamboo</h3>
+        <p class="card-desc">Jointed vertical bamboo culms with distinct ring nodes and razor-sharp tapered leaves swaying in an angled mountain gust.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 15: Cherry Blossom Branch -->
+      <a href="gallery.html?vol=2&plate=14" class="catalogue-card vol-2-card hidden" data-plate="14">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 15</span>
+          <span class="card-category">桜 &bull; SAKURA</span>
+        </div>
+        <h3 class="card-title">Cherry Blossom Branch</h3>
+        <p class="card-desc">Angular, weathered bark stroke bearing five-petaled blossoming florets, central stamen dots, and drifting petal silhouettes.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 16: Five-Tiered Zen Pagoda -->
+      <a href="gallery.html?vol=2&plate=15" class="catalogue-card vol-2-card hidden" data-plate="15">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 16</span>
+          <span class="card-category">塔 &bull; PAGODA</span>
+        </div>
+        <h3 class="card-title">Five-Tiered Pagoda</h3>
+        <p class="card-desc">Architectural temple tower with five sweeping curved eave roofs, central axis pillar, and a sacred ringed spire (sorin).</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 17: The Great Wave -->
+      <a href="gallery.html?vol=2&plate=16" class="catalogue-card vol-2-card hidden" data-plate="16">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 17</span>
+          <span class="card-category">波 &bull; OKI-NAMI</span>
+        </div>
+        <h3 class="card-title">The Great Wave</h3>
+        <p class="card-desc">Inspired by Hokusai: soaring crested ocean wave clawing forward with dynamic foam spray droplets and sweeping water ribbons.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 18: Zen Ensō Circle & Moon -->
+      <a href="gallery.html?vol=2&plate=17" class="catalogue-card vol-2-card hidden" data-plate="17">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 18</span>
+          <span class="card-category">円 &bull; ENSŌ</span>
+        </div>
+        <h3 class="card-title">Ensō Circle & Moon</h3>
+        <p class="card-desc">The sacred Zen circle drawn in one continuous, mindful brush stroke with organic pooling and dry-brush bristles, framing a crescent moon.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 19: Cloud Dragon -->
+      <a href="gallery.html?vol=2&plate=18" class="catalogue-card vol-2-card hidden" data-plate="18">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 19</span>
+          <span class="card-category">龍 &bull; RYŪ</span>
+        </div>
+        <h3 class="card-title">Cloud Dragon</h3>
+        <p class="card-desc">Legendary serpentine Eastern dragon coiling through misty clouds with antlered horns, flaming whiskers, and grasping talons.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 20: Mount Fuji & Mist -->
+      <a href="gallery.html?vol=2&plate=19" class="catalogue-card vol-2-card hidden" data-plate="19">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 20</span>
+          <span class="card-category">富士 &bull; FUJI</span>
+        </div>
+        <h3 class="card-title">Mount Fuji & Mist</h3>
+        <p class="card-desc">Iconic Japanese sacred mountain with sweeping parabolic volcanic slopes, snow-capped crater caldera, and stratified kasumi mist bands.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- ==================== VOLUME III: SACRED ARCHITECTURE ==================== -->
+      <!-- Card 21: Three-Tiered Mountain Pagoda -->
+      <a href="gallery.html?vol=3&plate=20" class="catalogue-card vol-3-card hidden" data-plate="20">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 21</span>
+          <span class="card-category">三重塔 &bull; PAGODA</span>
+        </div>
+        <h3 class="card-title">Three-Tiered Pagoda</h3>
+        <p class="card-desc">Classical Sanju-no-To: three ascending hip-and-gable roofs with sweeping sori eaves, vermilion post-and-beam joinery, tokyo brackets, and 9-ring bronze spire.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 22: The Golden Water Pavilion -->
+      <a href="gallery.html?vol=3&plate=21" class="catalogue-card vol-3-card hidden" data-plate="21">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 22</span>
+          <span class="card-category">金閣寺 &bull; KINKAKU-JI</span>
+        </div>
+        <h3 class="card-title">The Golden Pavilion</h3>
+        <p class="card-desc">Iconic three-story pavilion combining Shinden palace, Buke samurai, and Zen hall styles with lakeside veranda deck and a soaring golden Phoenix finial.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 23: Floating Grand Torii & Water Shrine -->
+      <a href="gallery.html?vol=3&plate=22" class="catalogue-card vol-3-card hidden" data-plate="22">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 23</span>
+          <span class="card-category">大鳥居 &bull; TORII GATE</span>
+        </div>
+        <h3 class="card-title">Floating Grand Torii</h3>
+        <p class="card-desc">Monumental vermilion Ryōbu-torii water gate rising from the sea: six colossal pillar trunks, swept dual lintel beams, and tidal water ripples.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 24: Tahōtō Multi-Treasure Pagoda -->
+      <a href="gallery.html?vol=3&plate=23" class="catalogue-card vol-3-card hidden" data-plate="23">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 24</span>
+          <span class="card-category">多宝塔 &bull; TAHŌTŌ</span>
+        </div>
+        <h3 class="card-title">Multi-Treasure Pagoda</h3>
+        <p class="card-desc">Esoteric Buddhist geometry: square base chamber transitioning into an ethereal cylindrical dome (kamebara), crowned by an upper square roof and bronze spire.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 25: Cantilevered Mountain Stage Hall -->
+      <a href="gallery.html?vol=3&plate=24" class="catalogue-card vol-3-card hidden" data-plate="24">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 25</span>
+          <span class="card-category">懸造り &bull; STAGE HALL</span>
+        </div>
+        <h3 class="card-title">Cliffside Stage Hall</h3>
+        <p class="card-desc">Inspired by Kiyomizu-dera: massive nail-less timber scaffold (kake-zukuri) jutting over mountain cliffs with sprawling cypress bark roof and misty clouds.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 26: Zen Mountain Grand Gate -->
+      <a href="gallery.html?vol=3&plate=25" class="catalogue-card vol-3-card hidden" data-plate="25">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 26</span>
+          <span class="card-category">山門 &bull; SANMON GATE</span>
+        </div>
+        <h3 class="card-title">Zen Grand Gate</h3>
+        <p class="card-desc">Monumental two-story gatehouse symbolizing the three gates of liberation: dual-bay entrance colonnade, upper balcony gallery, and interlocking bracket sets.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 27: Octagonal Hall of Dreams -->
+      <a href="gallery.html?vol=3&plate=26" class="catalogue-card vol-3-card hidden" data-plate="26">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 27</span>
+          <span class="card-category">八角堂 &bull; HAKKAKU-DŌ</span>
+        </div>
+        <h3 class="card-title">Octagonal Dream Hall</h3>
+        <p class="card-desc">Sacred 8-sided pavilion inspired by Hōryū-ji’s Yumedono: 8 swept eaves radiating from a central lotus flame jewel, with octagonal stone terrace and washi screens.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 28: Sacred Belfry & Great Bronze Bell -->
+      <a href="gallery.html?vol=3&plate=27" class="catalogue-card vol-3-card hidden" data-plate="27">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 28</span>
+          <span class="card-category">鐘楼 &bull; BELFRY &amp; BELL</span>
+        </div>
+        <h3 class="card-title">Temple Bell Tower</h3>
+        <p class="card-desc">Flared timber belfry pavilion sheltering a massive suspended bronze temple bell (bonshō) with dragon-head crown and horizontal swinging wooden striker log.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 29: Silver Zen Pavilion & Moon Terrace -->
+      <a href="gallery.html?vol=3&plate=28" class="catalogue-card vol-3-card hidden" data-plate="28">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 29</span>
+          <span class="card-category">銀閣寺 &bull; GINKAKU-JI</span>
+        </div>
+        <h3 class="card-title">Silver Zen Pavilion</h3>
+        <p class="card-desc">Wabi-sabi cedar pavilion featuring arched flower-bell windows (katōmado), moon-viewing veranda, dry gravel sea ripples, and conical sand mound (Kogetsudai).</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 30: The Grand Buddha Palace Hall -->
+      <a href="gallery.html?vol=3&plate=29" class="catalogue-card vol-3-card hidden" data-plate="29">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 30</span>
+          <span class="card-category">大仏殿 &bull; DAIBUTSUDEN</span>
+        </div>
+        <h3 class="card-title">The Grand Buddha Hall</h3>
+        <p class="card-desc">Colossal dual-eaved wooden palace hall inspired by Tōdai-ji: soaring bracket capitals, gilded curved cusped gable (karahafu), and twin golden roof horns (shibi).</p>
         <div class="card-footer">
           <span class="card-action">Inspect in 3D &rarr;</span>
         </div>
@@ -286,10 +570,10 @@
     <div class="cta-banner">
       <div class="cta-content">
         <h3>Ready to experience the 3D Atelier?</h3>
-        <p>Explore all 10 master studies in full interactive WebGL resolution.</p>
+        <p>Explore all 30 master studies across Renaissance Graphite, Japanese Sumi-e Zen Ink, and Sacred Temple &amp; Pagoda Architecture.</p>
       </div>
       <a href="gallery.html" class="btn-primary-explore">
-        <span>Enter 3D Gallery</span> &rarr;
+        <span>Enter 3D Gallery (30 Studies)</span> &rarr;
       </a>
     </div>
   </section>
@@ -299,17 +583,19 @@
     <div class="footer-top">
       <div class="footer-brand">
         <span class="brand-title">CONTOUR</span>
-        <span class="brand-sub">ATELIER DU DESSIN &bull; VOL. II</span>
+        <span class="brand-sub">ATELIER DU DESSIN &bull; VOL. I, II &amp; III</span>
       </div>
       <div class="footer-links">
         <a href="gallery.html">Exhibition Gallery</a>
-        <a href="#exhibits">The 10 Studies</a>
+        <a href="#exhibits">The 30 Studies</a>
         <a href="#philosophy">Manifesto</a>
       </div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2026 Atelier Contour. Crafted with Three.js, Vanilla CSS, and Web Audio API.</p>
-      <p>Studies: Lily &bull; GT Coupe &bull; Earth &bull; Ornithopter &bull; Tourbillon &bull; Nautilus &bull; Temple &bull; Stallion &bull; Biplane &bull; Phoenix</p>
+      <p>Vol. I: Lily &bull; GT Coupe &bull; Earth &bull; Ornithopter &bull; Tourbillon &bull; Nautilus &bull; Temple &bull; Stallion &bull; Biplane &bull; Phoenix</p>
+      <p>Vol. II: Bonsai Pine &bull; Nishikigoi &bull; Red Crane &bull; Bamboo &bull; Sakura &bull; Pagoda &bull; Great Wave &bull; Ensō &bull; Cloud Dragon &bull; Mount Fuji</p>
+      <p>Vol. III: Three-Tiered Pagoda &bull; Golden Pavilion &bull; Grand Torii &bull; Tahōtō &bull; Stage Hall &bull; Sanmon Gate &bull; Dream Hall &bull; Temple Belfry &bull; Silver Pavilion &bull; Grand Buddha Hall</p>
     </div>
   </footer>
 
