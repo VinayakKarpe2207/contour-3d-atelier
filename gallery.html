@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CONTOUR — 3D Dimensional Graphite & Cross-Hatch Gallery</title>
+  <meta name="description" content="Explore 10 master studies in 3D graphite sketch, architectural cross-hatching, and kinetic volume.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Paper Texture Overlay -->
+  <div class="paper-texture" aria-hidden="true"></div>
+  <div class="vignette-overlay" aria-hidden="true"></div>
+
+  <!-- Main Application Container -->
+  <div class="atelier-app">
+    
+    <!-- Top Gallery Header -->
+    <header class="gallery-header">
+      <div class="brand-group">
+        <a href="index.html" class="home-nav-link" title="Return to Landing Page">
+          <span class="nav-arrow">&larr;</span> ATELIER HOME
+        </a>
+        <span class="brand-divider">/</span>
+        <h1 class="gallery-title">CONTOUR</h1>
+        <span class="gallery-edition">DIMENSIONAL GRAPHITE &bull; 10 MASTER STUDIES</span>
+      </div>
+
+      <div class="header-status">
+        <div class="status-indicator">
+          <span class="status-dot"></span>
+          <span class="status-text" id="statusText">Study 01 &bull; Blooming Lily</span>
+        </div>
+        <button id="soundToggle" class="icon-btn" title="Toggle Tactile Pencil Sounds" aria-label="Toggle Sound">
+          <svg class="sound-icon sound-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <svg class="sound-icon sound-off hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- 3D Canvas Viewport -->
+    <main class="canvas-viewport" id="canvasViewport">
+      <canvas id="webglCanvas"></canvas>
+
+      <!-- Alignment / 2D Perspective Reticle Overlay & Live Re-Sketch -->
+      <div class="perspective-indicator" id="perspectiveIndicator">
+        <div class="reticle-box">
+          <span class="reticle-corner top-left"></span>
+          <span class="reticle-corner top-right"></span>
+          <span class="reticle-corner btm-left"></span>
+          <span class="reticle-corner btm-right"></span>
+          <div class="reticle-crosshair"></div>
+        </div>
+        <div class="perspective-label">
+          <span class="align-status" id="alignStatus">3D Spatial View</span>
+          <div class="perspective-actions">
+            <button id="snapPerspectiveBtn" class="snap-btn" title="Align to pure 2D silhouette view">
+              <span class="snap-icon">&#x21BA;</span> Align 2D Perspective
+            </button>
+            <button id="resketchBtn" class="snap-btn resketch-btn" title="Watch the artist sketch this piece in real-time">
+              <span class="snap-icon">&#x270D;</span> Live Re-Sketch
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Freehand 3D Draw Instructions (Visible during Sketch Mode) -->
+      <div class="drawing-hint hidden" id="drawingHint">
+        <span class="pencil-icon">&#x270E;</span>
+        <span class="hint-text">Click & drag on the canvas to draw freehand 3D pencil strokes in space</span>
+      </div>
+
+      <!-- Spatial Coordinates Overlay -->
+      <div class="spatial-coords" id="spatialCoords" aria-hidden="true">
+        <span>AZM: <strong id="coordAzm">0.0°</strong></span>
+        <span>ALT: <strong id="coordAlt">0.0°</strong></span>
+        <span>DEPTH: <strong id="coordDepth">10.0m</strong></span>
+      </div>
+    </main>
+
+    <!-- Left Gallery Index (Sculpture Switcher - 10 Studies) -->
+    <aside class="curator-sidebar">
+      <div class="sidebar-header">
+        <span class="section-label">GRAPHITE CODEX</span>
+        <span class="plate-counter" id="plateCounter">01 / 10</span>
+      </div>
+
+      <nav class="plates-list" role="tablist">
+        <!-- 01: Blooming Lily -->
+        <button class="plate-card active" data-plate="0" role="tab" aria-selected="true" id="plateBtn0">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 01</span>
+            <span class="plate-year">FLORA</span>
+          </div>
+          <h2 class="plate-name">Blooming Lily</h2>
+          <p class="plate-desc">Botanical study with 6 recurved petals, longitudinal striations, throat shading, stamens with anthers, and arching leaves.</p>
+        </button>
+
+        <!-- 02: Classic GT Coupe -->
+        <button class="plate-card" data-plate="1" role="tab" aria-selected="false" id="plateBtn1">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 02</span>
+            <span class="plate-year">AUTOMOTIVE</span>
+          </div>
+          <h2 class="plate-name">Classic GT Coupe</h2>
+          <p class="plate-desc">Automotive concept sketch featuring 16-wire spoke wheels, diamond mesh grille, fastback roof, steering wheel, and ground shadow scribbles.</p>
+        </button>
+
+        <!-- 03: Earth & Astrolabe -->
+        <button class="plate-card" data-plate="2" role="tab" aria-selected="false" id="plateBtn2">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 03</span>
+            <span class="plate-year">COSMOLOGY</span>
+          </div>
+          <h2 class="plate-name">Earth & Astrolabe</h2>
+          <p class="plate-desc">Cosmographical sphere with meridians, latitude parallels, continents, night-side cross-hatching, and tilted satellite orbit.</p>
+        </button>
+
+        <!-- 04: Da Vinci Flying Machine -->
+        <button class="plate-card" data-plate="3" role="tab" aria-selected="false" id="plateBtn3">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 04</span>
+            <span class="plate-year">RENAISSANCE</span>
+          </div>
+          <h2 class="plate-name">Da Vinci Ornithopter</h2>
+          <p class="plate-desc">Leonardo's famous human-powered flying wing with ribbed batten ribs, fuselage cockpit armature, and flight cables.</p>
+        </button>
+
+        <!-- 05: Mechanical Tourbillon -->
+        <button class="plate-card" data-plate="4" role="tab" aria-selected="false" id="plateBtn4">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 05</span>
+            <span class="plate-year">HOROLOGY</span>
+          </div>
+          <h2 class="plate-name">Tourbillon Horology</h2>
+          <p class="plate-desc">Precision mechanical watch movement with concentric gear teeth, escapement balance wheel, bridge brackets, and hands.</p>
+        </button>
+
+        <!-- 06: Logarithmic Nautilus -->
+        <button class="plate-card" data-plate="5" role="tab" aria-selected="false" id="plateBtn5">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 06</span>
+            <span class="plate-year">SACRED GEOMETRY</span>
+          </div>
+          <h2 class="plate-name">Nautilus Shell</h2>
+          <p class="plate-desc">Equiangular golden-ratio spiral shell exhibiting internal chamber septa walls and radiating calcified growth ribs.</p>
+        </button>
+
+        <!-- 07: Classical Roman Temple -->
+        <button class="plate-card" data-plate="6" role="tab" aria-selected="false" id="plateBtn6">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 07</span>
+            <span class="plate-year">ARCHITECTURE</span>
+          </div>
+          <h2 class="plate-name">Classical Temple</h2>
+          <p class="plate-desc">Monumental architectural study with fluted Corinthian colonnade, triangular pediment frieze, architrave, and stepped stylobate.</p>
+        </button>
+
+        <!-- 08: Galloping Stallion -->
+        <button class="plate-card" data-plate="7" role="tab" aria-selected="false" id="plateBtn7">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 08</span>
+            <span class="plate-year">ANATOMY</span>
+          </div>
+          <h2 class="plate-name">Galloping Stallion</h2>
+          <p class="plate-desc">Dynamic equestrian study capturing muscular chest contours, raised hooves, sweeping mane locks, and arched neck lines.</p>
+        </button>
+
+        <!-- 09: Vintage Biplane -->
+        <button class="plate-card" data-plate="8" role="tab" aria-selected="false" id="plateBtn8">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 09</span>
+            <span class="plate-year">AVIATION</span>
+          </div>
+          <h2 class="plate-name">Vintage Biplane</h2>
+          <p class="plate-desc">Early aviation study featuring dual staggered wings with diagonal wire rigging struts, radial rotary engine, and twin propeller.</p>
+        </button>
+
+        <!-- 10: Mythical Phoenix -->
+        <button class="plate-card" data-plate="9" role="tab" aria-selected="false" id="plateBtn9">
+          <div class="plate-meta">
+            <span class="plate-roman">STUDY 10</span>
+            <span class="plate-year">MYTHOLOGY</span>
+          </div>
+          <h2 class="plate-name">Mythical Phoenix</h2>
+          <p class="plate-desc">Ascending mythical firebird with crested crown, grand arched wings with feathered contours, tail plumes, and flame ribbons.</p>
+        </button>
+      </nav>
+
+      <!-- Draw In 3D Feature Button -->
+      <div class="atelier-action-box">
+        <button id="drawModeBtn" class="draw-studio-btn">
+          <span class="btn-icon">&#x270E;</span>
+          <span class="btn-text">Freehand Sketch Studio</span>
+        </button>
+        <button id="clearDrawingBtn" class="clear-drawing-btn hidden">Clear Canvas</button>
+      </div>
+    </aside>
+
+    <!-- Bottom Atelier Controls Bar -->
+    <footer class="atelier-footer">
+      <!-- Media / Ink Palette -->
+      <div class="control-group">
+        <span class="ctrl-label">GRAPHITE MEDIUM</span>
+        <div class="palette-swatches">
+          <button class="swatch-btn active" data-color="#181716" data-name="Carbon Graphite" title="Carbon Graphite" style="--swatch-c: #181716;"></button>
+          <button class="swatch-btn" data-color="#6F3B26" data-name="Burnt Sepia" title="Burnt Sepia" style="--swatch-c: #6F3B26;"></button>
+          <button class="swatch-btn" data-color="#243447" data-name="Prussian Ink" title="Prussian Ink" style="--swatch-c: #243447;"></button>
+          <button class="swatch-btn" data-color="#3D4A3E" data-name="Verdigris Pencil" title="Verdigris Pencil" style="--swatch-c: #3D4A3E;"></button>
+          <button class="swatch-btn" data-color="#B8860B" data-name="Gilded Metalpoint" title="Gilded Metalpoint" style="--swatch-c: #B8860B;"></button>
+        </div>
+      </div>
+
+      <!-- Shading Hatching Toggle -->
+      <div class="control-group">
+        <span class="ctrl-label">CROSS-HATCH SHADING</span>
+        <button id="hatchToggle" class="pill-toggle active" aria-pressed="true">
+          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+          <span class="toggle-label" id="hatchLabel">Volume On</span>
+        </button>
+      </div>
+
+      <!-- Drafting Guide Marks Toggle -->
+      <div class="control-group">
+        <span class="ctrl-label">DRAFTING GUIDES</span>
+        <button id="guidesToggle" class="pill-toggle active" aria-pressed="true">
+          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+          <span class="toggle-label" id="guidesLabel">Visible</span>
+        </button>
+      </div>
+
+      <!-- Hand-Drawn Jitter -->
+      <div class="control-group">
+        <span class="ctrl-label">GRAPHITE GRAIN</span>
+        <button id="jitterToggle" class="pill-toggle active" aria-pressed="true">
+          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+          <span class="toggle-label" id="jitterLabel">Organic Grain</span>
+        </button>
+      </div>
+
+      <!-- Auto Orbit Rotation Toggle -->
+      <div class="control-group">
+        <span class="ctrl-label">KINETIC ORBIT</span>
+        <button id="autoRotateToggle" class="pill-toggle active" aria-pressed="true">
+          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+          <span class="toggle-label" id="autoRotateLabel">Gentle Drift</span>
+        </button>
+      </div>
+
+      <!-- Curator Notes Info Trigger -->
+      <div class="control-group info-group">
+        <button id="curatorModalBtn" class="curator-info-btn">
+          <span>&iquest;</span> Curator Notes
+        </button>
+      </div>
+    </footer>
+
+    <!-- Curator Notes Modal Overlay -->
+    <div class="curator-modal-backdrop hidden" id="curatorModal">
+      <div class="curator-modal-sheet" role="dialog" aria-labelledby="modalTitle" aria-modal="true">
+        <button class="modal-close-btn" id="closeModalBtn" aria-label="Close Curator Notes">&times;</button>
+        <div class="modal-content">
+          <span class="modal-tag">CURATORIAL ESSAY &bull; ATELIER CONTOUR</span>
+          <h2 id="modalTitle" class="modal-title">The Master Graphite Codex</h2>
+          <div class="modal-body">
+            <p>
+              In classical Renaissance draughtsmanship—from Leonardo da Vinci’s anatomical studies to Albrecht Dürer’s geometric engravings—a drawing is not simply a flat silhouette. It is an exploration of volume, mass, and tension realized through rhythmic cross-hatching and architectural guide axes.
+            </p>
+            <p>
+              <strong>CONTOUR</strong> transforms this tradition into an interactive spatial studio across <strong>10 Master Studies</strong>. 
+              Viewed directly along the orthogonal axis (click <em>"Align 2D Perspective"</em>), the strokes collapse into a graphic draughtsman's sketch. 
+              Upon orbit, the layered graphite curves expand into third-dimensional space, revealing internal mechanisms, organic venation, and structural anatomy.
+            </p>
+            <div class="modal-quote">
+              &ldquo;Simplicity is the ultimate sophistication, and the line is its purest vehicle.&rdquo;
+              <span class="quote-author">— Leonardo da Vinci</span>
+            </div>
+            <div class="modal-guide">
+              <h3>Interaction Guide:</h3>
+              <ul>
+                <li><strong>Drag / Swipe:</strong> Orbit the 3D graphite sketch freely in space.</li>
+                <li><strong>Align 2D Perspective:</strong> Snaps the camera into the exact angle where 3D depth collapses into a 2D drawing.</li>
+                <li><strong>Live Re-Sketch:</strong> Watch the piece materialize live stroke-by-stroke with authentic tactile graphite audio.</li>
+                <li><strong>Cross-Hatch Shading:</strong> Toggle volumetric shadow hatching on/off to analyze the underlying structural contours.</li>
+                <li><strong>Freehand Sketch Studio:</strong> Draw your own 3D pencil strokes freely in spatial coordinates.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

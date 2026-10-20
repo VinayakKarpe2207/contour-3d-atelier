@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CONTOUR — Dimensional Graphite Atelier & Codex</title>
+  <meta name="description" content="An interactive exhibition of 10 master studies in 3D graphite sketch, architectural cross-hatching, and kinetic volume.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="landing.css">
+</head>
+<body class="landing-body">
+  <!-- Ambient Paper Texture Overlay -->
+  <div class="paper-texture" aria-hidden="true"></div>
+  <div class="vignette-overlay" aria-hidden="true"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="landing-nav">
+    <div class="nav-brand">
+      <span class="nav-badge">CODEX D'ART</span>
+      <span class="nav-title">CONTOUR</span>
+    </div>
+    <div class="nav-links">
+      <a href="#exhibits" class="nav-link">The 10 Studies</a>
+      <a href="#philosophy" class="nav-link">Manifesto</a>
+      <a href="#features" class="nav-link">Capabilities</a>
+      <a href="gallery.html" class="nav-cta-btn">
+        <span>Enter Atelier</span> &rarr;
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Interactive 3D Canvas -->
+  <header class="landing-hero">
+    <div class="hero-canvas-container">
+      <canvas id="hero3dCanvas"></canvas>
+      <div class="canvas-ambient-gradient"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge-wrap">
+        <span class="hero-kicker">EXHIBITION NO. 04 &bull; MASTER GRAPHITE CODEX</span>
+      </div>
+      <h1 class="hero-heading">
+        Where Classical Draughtsmanship<br>
+        <span class="hero-italic">Meets Third-Dimensional Space.</span>
+      </h1>
+      <p class="hero-lead">
+        Step beyond the flat sheet of vellum. Explore <strong>10 master studies</strong> sculpted purely from multi-stroke graphite contours, architectural cross-hatching, and spatial perspective.
+      </p>
+
+      <div class="hero-actions">
+        <a href="gallery.html" class="btn-primary-explore" id="exploreBtn">
+          <span class="btn-icon">&#x270D;</span>
+          <span class="btn-text">Explore 3D Atelier (10 Studies)</span>
+          <span class="btn-arrow">&rarr;</span>
+        </a>
+        <a href="#exhibits" class="btn-secondary-catalogue">
+          <span>View Catalogue</span>
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">10</span>
+          <span class="stat-label">Master Studies</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">360&deg;</span>
+          <span class="stat-label">Spatial Orbit</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">4-Stage</span>
+          <span class="stat-label">Live Re-Sketch</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-cue">
+      <span class="cue-mouse"></span>
+      <span class="cue-text">Scroll to Browse Codex</span>
+    </div>
+  </header>
+
+  <!-- Section: The 10 Master Studies Catalogue -->
+  <section class="section-catalogue" id="exhibits">
+    <div class="section-header">
+      <span class="section-tag">CATALOGUE DES ŒUVRES</span>
+      <h2 class="section-title">The Ten Master Studies</h2>
+      <p class="section-subtitle">
+        Each study balances classical Renaissance drafting rigor with kinetic volume. Click any plate to inspect in 3D.
+      </p>
+    </div>
+
+    <div class="catalogue-grid">
+      <!-- Card 01: Blooming Lily -->
+      <a href="gallery.html?plate=0" class="catalogue-card" data-plate="0">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 01</span>
+          <span class="card-category">FLORA</span>
+        </div>
+        <h3 class="card-title">Blooming Lily</h3>
+        <p class="card-desc">Botanical illustration featuring 6 recurved petals, longitudinal striations, throat shading, stamens with anthers, and arching leaves.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 02: Classic GT Coupe -->
+      <a href="gallery.html?plate=1" class="catalogue-card" data-plate="1">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 02</span>
+          <span class="card-category">AUTOMOTIVE</span>
+        </div>
+        <h3 class="card-title">Classic GT Coupe</h3>
+        <p class="card-desc">Industrial automotive blueprint with 16-wire spoke wheels, diamond mesh grille, fastback roof, and ground scribble shadow.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 03: Earth & Astrolabe -->
+      <a href="gallery.html?plate=2" class="catalogue-card" data-plate="2">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 03</span>
+          <span class="card-category">COSMOLOGY</span>
+        </div>
+        <h3 class="card-title">Earth & Astrolabe</h3>
+        <p class="card-desc">Cosmographical sphere with polar axis, meridians, continental coastlines, day/night spherical cross-hatching, and tilted satellite orbit.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 04: Da Vinci Ornithopter -->
+      <a href="gallery.html?plate=3" class="catalogue-card" data-plate="3">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 04</span>
+          <span class="card-category">RENAISSANCE</span>
+        </div>
+        <h3 class="card-title">Da Vinci Ornithopter</h3>
+        <p class="card-desc">Leonardo’s human-powered flying wing with ribbed batten ribs, fuselage cockpit armature, and flight pulley cables.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 05: Tourbillon Horology -->
+      <a href="gallery.html?plate=4" class="catalogue-card" data-plate="4">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 05</span>
+          <span class="card-category">HOROLOGY</span>
+        </div>
+        <h3 class="card-title">Tourbillon Horology</h3>
+        <p class="card-desc">Precision mechanical watch movement with concentric gear teeth, escapement balance wheel, bridge brackets, and hands.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 06: Logarithmic Nautilus Shell -->
+      <a href="gallery.html?plate=5" class="catalogue-card" data-plate="5">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 06</span>
+          <span class="card-category">SACRED GEOMETRY</span>
+        </div>
+        <h3 class="card-title">Nautilus Shell</h3>
+        <p class="card-desc">Equiangular golden-ratio spiral shell exhibiting internal chamber septa walls and radiating calcified growth ribs.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 07: Classical Roman Temple -->
+      <a href="gallery.html?plate=6" class="catalogue-card" data-plate="6">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 07</span>
+          <span class="card-category">ARCHITECTURE</span>
+        </div>
+        <h3 class="card-title">Classical Temple</h3>
+        <p class="card-desc">Monumental architectural study with fluted Corinthian colonnade, triangular pediment frieze, architrave, and stepped stylobate.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 08: Galloping Stallion -->
+      <a href="gallery.html?plate=7" class="catalogue-card" data-plate="7">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 08</span>
+          <span class="card-category">ANATOMY</span>
+        </div>
+        <h3 class="card-title">Galloping Stallion</h3>
+        <p class="card-desc">Dynamic equestrian study capturing muscular chest contours, raised hooves, sweeping mane locks, and arched neck lines.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 09: Vintage Biplane -->
+      <a href="gallery.html?plate=8" class="catalogue-card" data-plate="8">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 09</span>
+          <span class="card-category">AVIATION</span>
+        </div>
+        <h3 class="card-title">Vintage Biplane</h3>
+        <p class="card-desc">Early aviation study featuring dual staggered wings with diagonal wire rigging struts, radial rotary engine, and twin propeller.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Card 10: Mythical Phoenix -->
+      <a href="gallery.html?plate=9" class="catalogue-card" data-plate="9">
+        <div class="card-meta">
+          <span class="card-roman">STUDY 10</span>
+          <span class="card-category">MYTHOLOGY</span>
+        </div>
+        <h3 class="card-title">Mythical Phoenix</h3>
+        <p class="card-desc">Ascending mythical firebird with crested crown, grand arched wings with feathered contours, tail plumes, and flame ribbons.</p>
+        <div class="card-footer">
+          <span class="card-action">Inspect in 3D &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Section: Curatorial Philosophy & Manifesto -->
+  <section class="section-manifesto" id="philosophy">
+    <div class="manifesto-card">
+      <span class="manifesto-tag">CURATORIAL MANIFESTO</span>
+      <h2 class="manifesto-heading">The Line as Spatial Architecture</h2>
+      <div class="manifesto-body">
+        <p>
+          In traditional draughtsmanship, a pencil stroke is confined to a flat plane of cotton vellum. Yet from Leonardo da Vinci’s anatomical studies to Albrecht Dürer’s geometric engravings, great draughtsmen always perceived the line as an armature of mass, tension, and volume.
+        </p>
+        <p>
+          <strong>CONTOUR</strong> liberates drawing from the page. Built with WebGL shaders and procedural spatial curves, every contour, cross-hatch shading stroke, and construction guideline is rendered in real third-dimensional depth.
+        </p>
+      </div>
+      <blockquote class="manifesto-quote">
+        &ldquo;A line is a dot that went for a walk into the third dimension.&rdquo;
+        <cite>— Adaptation of Paul Klee, <em>Pedagogical Sketchbook</em></cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Section: Interactive Capabilities -->
+  <section class="section-features" id="features">
+    <div class="section-header">
+      <span class="section-tag">CAPACITÉS DE L'ATELIER</span>
+      <h2 class="section-title">Interactive Studio Features</h2>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-box">
+        <div class="feature-icon">&#x270D;</div>
+        <h3 class="feature-title">Live Re-Sketch Animation</h3>
+        <p class="feature-text">Watch each masterpiece draw itself onto the drafting paper in 4 sequential stages (Guides &rarr; Contours &rarr; Details &rarr; Cross-Hatch Shading) with synchronized tactile graphite audio.</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">&#x21BA;</div>
+        <h3 class="feature-title">2D Perspective Alignment</h3>
+        <p class="feature-text">A magnetic alignment reticle detects when your orbital camera aligns with the orthogonal front view, collapsing 3D depth into a pure graphic 2D sketch.</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">&#x25A6;</div>
+        <h3 class="feature-title">Cross-Hatch Shading Toggle</h3>
+        <p class="feature-text">Switch volumetric pencil shading on or off to analyze how parallel and intersecting graphite hatch lines sculpt form and cast shadow.</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">&#x2702;</div>
+        <h3 class="feature-title">Freehand 3D Sketch Studio</h3>
+        <p class="feature-text">Switch to Sketch Mode to hold and drag your mouse, creating your own three-dimensional graphite wire ribbons floating in space.</p>
+      </div>
+    </div>
+
+    <div class="cta-banner">
+      <div class="cta-content">
+        <h3>Ready to experience the 3D Atelier?</h3>
+        <p>Explore all 10 master studies in full interactive WebGL resolution.</p>
+      </div>
+      <a href="gallery.html" class="btn-primary-explore">
+        <span>Enter 3D Gallery</span> &rarr;
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="landing-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="brand-title">CONTOUR</span>
+        <span class="brand-sub">ATELIER DU DESSIN &bull; VOL. II</span>
+      </div>
+      <div class="footer-links">
+        <a href="gallery.html">Exhibition Gallery</a>
+        <a href="#exhibits">The 10 Studies</a>
+        <a href="#philosophy">Manifesto</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Atelier Contour. Crafted with Three.js, Vanilla CSS, and Web Audio API.</p>
+      <p>Studies: Lily &bull; GT Coupe &bull; Earth &bull; Ornithopter &bull; Tourbillon &bull; Nautilus &bull; Temple &bull; Stallion &bull; Biplane &bull; Phoenix</p>
+    </div>
+  </footer>
+
+  <!-- Three.js for Interactive Hero Canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="landing.js"></script>
+</body>
+</html>
